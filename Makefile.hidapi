@@ -1,6 +1,6 @@
 HIDAPI = hidapi-hidraw
 CC     = gcc
-CFLAGS = -Wall -Werror -Os -DHAVE_HIDAPI -DEXTRA_DEBUG -DDEBUG_COMM -I. -I/usr/local/include 
+CFLAGS = -Wall -Os -DHAVE_HIDAPI -DEXTRA_DEBUG -DDEBUG_COMM -I. -I/usr/local/include 
 LIBS = -L/usr/local/lib 
 OBJS   = hexUtils.o btchipUtils.o bitcoinVarint.o bitcoinTransaction.o bitcoinAmount.o btchipArgs.o
 OBJS_COMM = $(OBJS) dongleCommHidHidapi.o dongleComm.o ledgerLayer.o

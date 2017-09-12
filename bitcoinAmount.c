@@ -28,15 +28,6 @@
 static const int64_t CENT = 1000000;
 static const int64_t COIN = 100000000;
 
-inline int64_t atoi64(const char* psz)
-{
-#ifdef _MSC_VER
-    return _atoi64(psz);
-#else
-    return strtoll(psz, NULL, 10);
-#endif
-}
-
 int parseStringAmount(char *amount, int64_t* result) {
 	int strOffset = 0;
     char strWhole[11];
@@ -75,7 +66,7 @@ int parseStringAmount(char *amount, int64_t* result) {
             return -1;
     if (nUnits < 0 || nUnits > COIN)
         return -1;
-    nWhole = atoi64(strWhole);
+    nWhole = strtoll(strWhole, NULL, 10);
     nValue = nWhole*COIN + nUnits;
 
     *result = nValue;
